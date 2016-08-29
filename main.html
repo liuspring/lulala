@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>首页</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
-
-		<style>
-			html,
-			body {
-				background-color: #efeff4;
+		<style type="text/css">
+			.mui-card .mui-control-content {
+				padding: 10px;
 			}
 			
-			.mui-bar~.mui-content .mui-fullscreen {
-				top: 44px;
+			.mui-control-content {
+				height: 150px;
+			}
+			
+			.mui-media {
+				background-color: #f2f2f2;
+				border-radius: 4px;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+				width: 30%;
+				max-width: 30%;
 				height: auto;
-			}
-			
-			.mui-slider-indicator.mui-segmented-control {
-				background-color: #efeff4;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header id="header" class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">撸啦啦</h1>
 		</header>
 		<div class="mui-content">
-			<div id="slider" class="mui-slider mui-fullscreen">
-				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<div class="mui-scroll">
-						<a class="mui-control-item mui-active" href="#item1mobile">
-							首页
-						</a>
-						<a class="mui-control-item" href="#item2mobile">
-							男生
-						</a>
-						<a class="mui-control-item" href="#item3mobile">
-							女生
-						</a>
-						<a class="mui-control-item" href="#item4mobile">
-							排行
-						</a>
-						<a class="mui-control-item" href="#item5mobile">
-							充值
-						</a>
-						<a class="mui-control-item" href="#item6mobile">
-							书包
-						</a>
-						<a class="mui-control-item" href="#item6mobile">
-							登录
-						</a>
-					</div>
+			<div style="padding: 10px 10px;">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="main.html">
+						首页
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
+						男生
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
+						女生
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
+						排行
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="recharge.html">
+						充值
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
+						书包
+					</a>
+					<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
+						登录
+					</a>
 				</div>
 			</div>
-			<div class="mui-input-row mui-search" style="margin: 40px 0px 0px;">
-				<input type="search" class="mui-input-clear" placeholder="请输入关键词搜索">
+			<div class="mui-input-row mui-search" style="margin: 0px 10px;">
+				<button type="button" style="line-height: 0.9;left: -1px;" class="mui-btn mui-btn-mini mui-btn-primary mui-icon mui-right">
+		            	搜索
+		    </button>
+				<input type="search" style="background-color: rgba(0,0,0,.1);" class="mui-input-clear mui-input-row" placeholder="请输入关键词搜索……">
 			</div>
 			<div class="mui-card">
 				<!--页眉，放置标题-->
@@ -106,31 +113,29 @@
 				<!--内容区-->
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell mui-media">
-								<a href="javascript:;">
-									<img class="mui-media-object mui-pull-left" src="images/qq.png">
-									<div class="mui-media-body">
-										<span class="mui-btn-link mui-row">木屋</span>
-										<span>[连载中……]</span>
-										<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
-										<p class='mui-ellipsis mui-collapse'>
-											想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
-										</p>
-									</div>
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="images/qq.png">
+									<div class="mui-media-body">幸福就是可以一起睡觉</div>
 								</a>
 							</li>
-							<li class="mui-table-view-cell">
-								[总裁豪门] <span class="mui-btn-link">跟我回家</span>
-								<span class="mui-badge mui-badge-inverted">1754057字</span>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="images/qq.png">
+									<div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div>
+								</a>
 							</li>
-							<li class="mui-table-view-cell">
-								[都市高干] <span class="mui-btn-link">妻子的谎言</span>
-								<span class="mui-badge mui-badge-inverted">1816457字</span>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#"><img class="mui-media-object" src="images/qq.png">
+									<div class="mui-media-body">Color of SIP CBD</div>
+								</a>
 							</li>
-							<li class="mui-table-view-cell">
-								[玄幻修真] <span class="mui-btn-link">爱情赏味期</span>
-								<span class="mui-badge mui-badge-inverted">2654057字</span>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="images/qq.png">
+									<div class="mui-media-body">静静看这世界</div>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -214,15 +219,47 @@
 					</div>
 				</div>
 			</div>
-
+			<div class="mui-bottom mui-text-center" style="margin-bottom: 40px;">
+				<p>
+					<a href="" target="_self">触屏版</a>·
+					<a href="" target="_self">客户端</a>·
+					<a href="#">回顶部</a>
+				</p>
+				<p>陕IPC备10012047</p>
+				<p>2011-2014 书海小说网</p>
+			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script>
 			(function($, doc) {
+				$.init({
+					statusBarBackground: '#f7f7f7'
+				});
 				$.ready(function() {
-
-				})
-
+					var menuList = doc.querySelectorAll('[data-type]');
+					for(var i = 0; i < menuList.length; i++) {
+						menuList[i].addEventListener('tap', function(event) {
+						var $menu = event.srcElement;
+						var url = $menu.getAttribute("data-type");
+						var id=url.substring(0,url.length-5);
+						$.fire(id,"newsId",{id:id});
+							$.openWindow({
+								url: url,
+								id: id,
+								preload: true,
+								show: {
+									aniShow: 'pop-in'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						}, false);
+					}
+				});
 			}(mui, document));
 		</script>
 	</body>
