@@ -3,44 +3,76 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>充值中心</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-btn-mini {
+				padding: 0px 12px;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+				width: 30%;
+				max-width: 30%;
+				height: auto;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">撸啦啦</h1>
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>返回
+				</button>
+			<button class="mui-btn mui-btn-blue mui-pull-right  mui-btn-link">主页</button>
+			<h1 class="mui-center mui-title">充值中心</h1>
 		</header>
 		<div class="mui-content">
-			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-				<a class="mui-control-item" href="javascript:void(0)" data-type="main.html">
-					首页
-				</a>
-				<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
-					分类
-				</a>
-				<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
-					排行
-				</a>
-				<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="recharge.html">
-					充值
-				</a>
-				<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
-					书架
-				</a>
-				<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
+			<div class="mui-content-padded">
+				<div style="font-size: 14px; color: #8F8F94; text-align: center;">
+					充值前请先
+					<button type="button" class="mui-btn mui-btn-mini mui-btn-royal mui-btn-outlined">
 					登录
-				</a>
+				</button> ，如果没有账号
+					<button type="button" class="mui-btn mui-btn-mini mui-btn-royal mui-btn-outlined">
+					点击注册
+				</button>
+				</div>
 			</div>
-			<div class="mui-input-row mui-search" style="margin: 0px 10px;">
-				<button type="button" style="line-height: 0.9;left: -1px;" class="mui-btn mui-btn-mini mui-btn-primary mui-icon mui-right">
-		            	搜索
-		    </button>
-				<input type="search" style="background-color: rgba(0,0,0,.1);" class="mui-input-clear mui-input-row" placeholder="请输入关键词搜索……">
+			<div class="mui-card">
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<ul class="mui-table-view mui-grid-view">
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="images/weixin.png">
+									<div class="mui-media-body">微信</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								<a href="#">
+									<img class="mui-media-object" src="images/qq.png">
+									<div class="mui-media-body">支付宝</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-			<div>
-				充值
+			<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					温馨提示
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						1.兑换比例：1元=100书币<br> 2.支付宝：支付宝余额，银行卡支付，微信环境内不可用
+						<br> 3.微信支付：
+						<span class="cRed">微信环境下唯一可使用充值方式</span><br> *充值遇到问题时，请联系客服
+						<br> 客服QQ：2796580386
+					</div>
+				</div>
 			</div>
 			<script src="js/mui.min.js"></script>
 			<script>
@@ -49,28 +81,7 @@
 						statusBarBackground: '#f7f7f7'
 					});
 					$.ready(function() {
-						var menuList = doc.querySelectorAll('[data-type]');
-						for(var i = 0; i < menuList.length; i++) {
-							menuList[i].addEventListener('tap', function(event) {
-								var $menu = event.srcElement;
-								var url = $menu.getAttribute("data-type");
-								var id = url.substring(0, url.length - 5);
-								$.openWindow({
-									url: url,
-									id: id,
-									preload: true,
-									show: {
-										aniShow: 'pop-in'
-									},
-									styles: {
-										popGesture: 'hide'
-									},
-									waiting: {
-										autoShow: false
-									}
-								});
-							}, false);
-						}
+
 					});
 				}(mui, document));
 			</script>

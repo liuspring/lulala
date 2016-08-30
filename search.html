@@ -7,7 +7,37 @@
 		<title>查询</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style type="text/css">
-
+			.mui-btn-mini {
+				padding: 2px 12px;
+			}
+			
+			.mui-card-content-inner span {
+				display: inline-block;
+				float: left;
+				margin: 2px;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted span.mui-control-item.mui-active {
+				border-bottom: none;
+				color: orangered;
+			}
+			
+			table tr:nth-child(odd) {
+				background-color: #f2f2f2;
+			}
+			
+			table tr td:first-child {
+				padding-top: 10px;
+				padding-left: 18px;
+				width: 60px;
+				text-align: right;
+				vertical-align: top;
+			}
+			
+			.mui-card-content-inner {
+				position: relative;
+				padding: 5px 0px;
+			}
 		</style>
 	</head>
 
@@ -48,55 +78,227 @@
 				</div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
-						<form class="mui-input-group">
-							<div class="mui-input-row">
-								<label>频道：</label>
-								<span class="mui-btn-danger">aaa</span>
-							</div>
-							<div class="mui-input-row">
-								<label>分类：</label>
-							</div>
-						</form>
+						<table>
+							<tr>
+								<td>
+									频道：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">男频</span>
+										<span class="mui-col-sm-2 mui-control-item">女频</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									分类：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">全部</span>
+										<span class="mui-col-sm-2 mui-control-item">校园</span>
+										<span class="mui-col-sm-2 mui-control-item">婚恋</span>
+										<span class="mui-col-sm-2 mui-control-item">穿越</span>
+										<span class="mui-col-sm-2 mui-control-item">职场</span>
+										<span class="mui-col-sm-2 mui-control-item">后宫</span>
+										<span class="mui-col-sm-2 mui-control-item">耽美</span>
+										<span class="mui-col-sm-2 mui-control-item">总裁</span>
+										<span class="mui-col-sm-2 mui-control-item">高干</span>
+										<span class="mui-col-sm-2 mui-control-item">悬疑</span>
+										<span class="mui-col-sm-2 mui-control-item">女强</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									分类：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">全部</span>
+										<span class="mui-col-sm-2 mui-control-item">30万以下</span>
+										<span class="mui-col-sm-2 mui-control-item">30万-50万</span>
+										<span class="mui-col-sm-2 mui-control-item">50万-100万</span>
+										<span class="mui-col-sm-2 mui-control-item">100万-200万</span>
+										<span class="mui-col-sm-2 mui-control-item">200万以上</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									排序：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">默认</span>
+										<span class="mui-col-sm-2 mui-control-item">字数</span>
+										<span class="mui-col-sm-2 mui-control-item">点击</span>
+										<span class="mui-col-sm-2 mui-control-item">收藏</span>
+										<span class="mui-col-sm-2 mui-control-item">销量</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									进度：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">全部</span>
+										<span class="mui-col-sm-2 mui-control-item">连载中</span>
+										<span class="mui-col-sm-2 mui-control-item">已完成</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									类型：
+								</td>
+								<td>
+									<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+										<span class="mui-col-sm-2 mui-control-item mui-active">不限</span>
+										<span class="mui-col-sm-2 mui-control-item">只看免费</span>
+										<span class="mui-col-sm-2 mui-control-item">只看VIP</span>
+									</div>
+								</td>
+							</tr>
+						</table>
 					</div>
-				</div>
 
+				</div>
 			</div>
-			<script src="js/mui.min.js"></script>
-			<script>
-				(function($, doc) {
-					$.init({
-						statusBarBackground: '#f7f7f7'
-					});
-					$.ready(function() {
-						var menuList = doc.querySelectorAll('[data-type]');
-						for(var i = 0; i < menuList.length; i++) {
-							menuList[i].addEventListener('tap', function(event) {
-								var $menu = event.srcElement;
-								var url = $menu.getAttribute("data-type");
-								var id = url.substring(0, url.length - 5);
-								$.openWindow({
-									url: url,
-									id: id,
-									preload: true,
-									show: {
-										aniShow: 'pop-in'
-									},
-									styles: {
-										popGesture: 'hide'
-									},
-									waiting: {
-										autoShow: false
-									}
-								});
-							}, false);
-						}
-						window.addEventListener("newsId", function(event) {
-							var id = event.detail.id;
-							alert(id)
-						})
-					});
-				}(mui, document));
-			</script>
+			<div class="mui-card">
+				<!--内容区-->
+				<div class="mui-card-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qq.png">
+								<div class="mui-media-body">
+									<span class="mui-btn-link mui-row">木屋</span>
+									<span>[连载中……]</span>
+									<span class="mui-badge mui-badge-inverted mui-right">1754057字</span>
+									<p class='mui-ellipsis mui-collapse'>
+										想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.
+									</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="mui-bottom mui-text-center" style="margin-bottom: 40px;">
+				<p>
+					<a href="" target="_self">触屏版</a>·
+					<a href="" target="_self">客户端</a>·
+					<a href="#">回顶部</a>
+				</p>
+				<p>陕IPC备10012047</p>
+				<p>2011-2014 书海小说网</p>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#f7f7f7'
+				});
+				$.ready(function() {
+					var menuList = doc.querySelectorAll('[data-type]');
+					for(var i = 0; i < menuList.length; i++) {
+						menuList[i].addEventListener('tap', function(event) {
+							var $menu = event.srcElement;
+							var url = $menu.getAttribute("data-type");
+							var id = url.substring(0, url.length - 5);
+							$.openWindow({
+								url: url,
+								id: id,
+								preload: true,
+								show: {
+									aniShow: 'pop-in'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						}, false);
+					}
+					window.addEventListener("newsId", function(event) {
+						var id = event.detail.id;
+						alert(id)
+					})
+				});
+			}(mui, document));
+		</script>
 	</body>
 
 </html>
