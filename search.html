@@ -2,48 +2,64 @@
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<title>查询</title>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>查询</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">撸啦啦</h1>
 		</header>
 		<div class="mui-content">
-			<div style="padding: 10px 10px;">
-				<div id="segmentedControl" class="mui-segmented-control">
-					<a class="mui-control-item" href="javascript:void(0)" data-type="main.html">
-						首页
-					</a>
-					<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="search.html">
-						男生
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
-						女生
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
-						排行
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="recharge.html">
-						充值
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
-						书包
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
-						登录
-					</a>
-				</div>
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item" href="javascript:void(0)" data-type="main.html">
+					首页
+				</a>
+				<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="search.html">
+					分类
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
+					排行
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="recharge.html">
+					充值
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
+					书架
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
+					登录
+				</a>
 			</div>
-			<div class="mui-input-row mui-search" style="margin: 0px 10px;">
+			<div class="mui-input-row mui-search" style="margin: 10px;">
 				<button type="button" style="line-height: 0.9;left: -1px;" class="mui-btn mui-btn-mini mui-btn-primary mui-icon mui-right">
 		            	搜索
 		    </button>
 				<input type="search" style="background-color: rgba(0,0,0,.1);" class="mui-input-clear mui-input-row" placeholder="请输入关键词搜索……">
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="mui-tab-label mui-left">书架</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>频道：</label>
+								<span class="mui-btn-danger">aaa</span>
+							</div>
+							<div class="mui-input-row">
+								<label>分类：</label>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</div>
 			<script src="js/mui.min.js"></script>
 			<script>
@@ -74,8 +90,8 @@
 								});
 							}, false);
 						}
-						window.addEventListener("newsId",function(event){
-							var id=event.detail.id;
+						window.addEventListener("newsId", function(event) {
+							var id = event.detail.id;
 							alert(id)
 						})
 					});

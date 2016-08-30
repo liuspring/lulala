@@ -14,7 +14,11 @@
 				margin: 0px;
 				padding: 0px;
 			}
-			.mui-content{height: 100%;}
+			
+			.mui-content {
+				height: 100%;
+			}
+			
 			.area {
 				margin: 20px auto 0px auto;
 			}
@@ -60,13 +64,13 @@
 				color: #bbb;
 				padding: 0px 8px;
 			}
-
 		</style>
 
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
+						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">登录</h1>
 		</header>
 		<div class="mui-content">
@@ -82,7 +86,9 @@
 			</form>
 			<div class="mui-content-padded">
 				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+				<div class="link-area">
+					<a id='reg'>注册账号</a> <span class="spliter">|</span>
+					<a id='forgetPassword'>忘记密码</a>
 				</div>
 			</div>
 			<div class="mui-content-padded oauth-area">
@@ -96,7 +102,7 @@
 				$.init({
 					statusBarBackground: '#f7f7f7'
 				});
-				$.ready(function(){
+				$.ready(function() {
 					//检查 "登录状态/锁屏状态" 结束
 					var loginButton = doc.getElementById('login');
 					var accountBox = doc.getElementById('account');
@@ -110,13 +116,13 @@
 							account: accountBox.value,
 							password: passwordBox.value
 						};
-						
+
 						//验证用户名密码
 						if(true)
 							toMain();
 
 					});
-					
+
 					var mainPage = $.preload({
 						"id": 'main',
 						"url": 'main.html'
@@ -126,7 +132,7 @@
 						setTimeout(function() {
 							$.openWindow({
 								id: 'main',
-								url:'main.html',
+								url: 'main.html',
 								show: {
 									aniShow: 'pop-in'
 								},
@@ -156,7 +162,7 @@
 							}
 						});
 					}, false);
-					
+
 					//忘记密码
 					forgetButton.addEventListener('tap', function(event) {
 						$.openWindow({
@@ -175,8 +181,7 @@
 						});
 					}, false);
 				});
-
-				}(mui, document));
+			}(mui, document));
 		</script>
 	</body>
 

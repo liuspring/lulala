@@ -7,9 +7,10 @@
 		<title>首页</title>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style type="text/css">
-			.mui-card .mui-control-content {
+			/*.mui-card .mui-control-content {
 				padding: 10px;
 			}
+			*/
 			
 			.mui-control-content {
 				height: 150px;
@@ -29,37 +30,31 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<header class="mui-bar mui-bar-nav" style="">
 			<h1 class="mui-title">撸啦啦</h1>
 		</header>
 		<div class="mui-content">
-			<div style="padding: 10px 10px;">
-				<div id="segmentedControl" class="mui-segmented-control">
-					<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="main.html">
-						首页
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
-						男生
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
-						女生
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
-						排行
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="recharge.html">
-						充值
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
-						书包
-					</a>
-					<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
-						登录
-					</a>
-				</div>
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item mui-active" href="javascript:void(0)" data-type="main.html">
+					首页
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="search.html">
+					分类
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="ranking.html">
+					排行
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="recharge.html">
+					充值
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="bag.html">
+					书架
+				</a>
+				<a class="mui-control-item" href="javascript:void(0)" data-type="login.html">
+					登录
+				</a>
 			</div>
-			<div class="mui-input-row mui-search" style="margin: 0px 10px;">
+			<div class="mui-input-row mui-search" style="margin: 10px;">
 				<button type="button" style="line-height: 0.9;left: -1px;" class="mui-btn mui-btn-mini mui-btn-primary mui-icon mui-right">
 		            	搜索
 		    </button>
@@ -239,13 +234,20 @@
 					var menuList = doc.querySelectorAll('[data-type]');
 					for(var i = 0; i < menuList.length; i++) {
 						menuList[i].addEventListener('tap', function(event) {
-						var $menu = event.srcElement;
-						var url = $menu.getAttribute("data-type");
-						var id=url.substring(0,url.length-5);
-						$.fire(id,"newsId",{id:id});
+							var $menu = event.srcElement;
+							var pageUrl = $menu.getAttribute("data-type");
+							var pageId = pageUrl.substring(0, pageUrl.length - 5);
+							var page = $.preload({
+								"id": pageId,
+								"url": pageUrl
+							});
+							$.fire(page, "newsId", {
+								pageId: pageId
+							});
+
 							$.openWindow({
-								url: url,
-								id: id,
+								id: pageId,
+								url: pageUrl,
 								preload: true,
 								show: {
 									aniShow: 'pop-in'
